@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+        white-space: nowrap;
+    }
+}
+
+.active {
+    color: red;
+}
