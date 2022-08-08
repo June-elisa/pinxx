@@ -1,59 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-scrollable-tab',
   templateUrl: './scrollable-tab.component.html',
-  styleUrls: ['./scrollable-tab.component.scss']
+  styleUrls: ['./scrollable-tab.component.scss'],
 })
 export class ScrollableTabComponent implements OnInit {
-  selectIndex = -1;
-  menus: TopMenu[] = [
-    {
-      title: '热门',
-      link: ''
-    },
-    {
-      title: '男装',
-      link: ''
-    },
-    {
-      title: '百货',
-      link: ''
-    },
-    {
-      title: '运动',
-      link: ''
-    },
-    {
-      title: '手机   ',
-      link: ''
-    },
-    {
-      title: '家纺',
-      link: ''
-    },
-    {
-      title: '食品',
-      link: ''
-    },
-    {
-      title: '美妆',
-      link: ''
-    },
-    {
-      title: '家电',
-      link: ''
-    },
-    {
-      title: '粮油',
-      link: ''
-    },
-  ]
+  @Input() menus: TopMenu[] = [];
+  @Output() tabSelected = new EventEmitter();
 
+  selectIndex = -1;
   dict: Dict = {
     a: '1',
-    b: '2'
-  }
+    b: '2',
+  };
 
   constructor() {
     console.log(this.dict['a']);
@@ -61,16 +21,15 @@ export class ScrollableTabComponent implements OnInit {
 
   add: AddFunc = (x, y) => x + y;
 
-  handleSelection(i:number){
+  handleSelection(i: number) {
     this.selectIndex = i;
+    this.tabSelected.emit(this.menus[this.selectIndex]);
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
 // interface - 对象类型
-interface TopMenu {
+export interface TopMenu {
   title: string;
   link?: string;
 }

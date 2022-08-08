@@ -12,10 +12,22 @@ ul {
     flex-wrap: nowrap;
 
     li {
-        display: inline-block;
-        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5px;
+        padding: 0;
         white-space: nowrap;
+
+        .indicator {
+            background-color: brown;
+            height: 2px;
+            width: 2rem;
+            margin-top: 2px;
+        }
     }
+
 }
 
 .active {
