@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ImageSlider } from './components/image-slider/image-slider.component';
+import { Component, ViewChild } from '@angular/core';
+import { ImageSlider, ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { TopMenu } from './components/scrollable-tab/scrollable-tab.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { TopMenu } from './components/scrollable-tab/scrollable-tab.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('imageSlider') imgSlider!: ImageSliderComponent;
   title = 'pinxx';
   TopMenus: TopMenu[] = [
     {
@@ -72,5 +73,10 @@ export class AppComponent {
 
   handleTabSelected(topMenu:TopMenu){
     console.log('topMenu:',topMenu)
+  }
+
+  ngAfterViewInit(): void {
+    console.log('imageSlider:',this.imgSlider)
+    
   }
 }
