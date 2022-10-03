@@ -69,6 +69,16 @@ export class AppComponent {
       link:'',
       caption:''
     },
+    {
+      imgUrl:'https://img2.baidu.com/it/u=2413717469,2574113709&fm=253&fmt=auto&app=138&f=JPEG?w=660&h=500',
+      link:'',
+      caption:''
+    },
+    {
+      imgUrl:'https://img0.baidu.com/it/u=3123983776,2678596163&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+      link:'',
+      caption:''
+    },
   ]
 
   handleTabSelected(topMenu:TopMenu){

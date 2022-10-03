@@ -10,7 +10,8 @@ ul {
     padding: 0;
     display: flex;
     flex-wrap: nowrap;
-
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     li {
         display: flex;
         flex-direction: column;
