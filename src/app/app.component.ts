@@ -80,6 +80,7 @@ export class AppComponent {
       caption:''
     },
   ]
+  username = '';
 
   handleTabSelected(topMenu:TopMenu){
     console.log('topMenu:',topMenu)
