@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Confirmable, Emoji } from '../../decorators';
 
 @Component({
   selector: 'app-horizontal-grid',
@@ -9,6 +10,9 @@ export class HorizontalGridComponent implements OnInit {
   // username = ''
   private _username = '';
   @Output() usernameChange = new EventEmitter(); 
+  @Emoji() result = 'Hello'; // 表情注解 -- 无参数
+
+
   constructor() { }
 
   ngOnInit() {
@@ -28,4 +32,9 @@ export class HorizontalGridComponent implements OnInit {
     this.username = event.target.value
   }
 
+  // 确认注解 -- 有参数
+  @Confirmable('您确认要执行吗？')
+  handleClick(){
+    console.log('点击已执行')
+  }
 }
