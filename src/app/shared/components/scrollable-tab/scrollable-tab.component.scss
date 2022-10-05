@@ -1,0 +1,35 @@
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5px;
+        padding: 0;
+        white-space: nowrap;
+
+        .indicator {
+            height: 2px;
+            width: 2rem;
+            margin-top: 2px;
+        }
+    }
+
+}
+
+.active {
+    color: red;
+}
