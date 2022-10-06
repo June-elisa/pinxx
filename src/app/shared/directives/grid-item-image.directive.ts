@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
     selector: '[appGridItemImage]',
@@ -13,9 +13,20 @@ export class GridItemImageDirective implements OnInit {
     }
 
     ngOnInit(): void {
-        this.rd2.setStyle(this.elr.nativeElement,'grid-area','image')
-        this.rd2.setStyle(this.elr.nativeElement,'width',this.appGridItemImage)
-        this.rd2.setStyle(this.elr.nativeElement,'height',this.appGridItemImage)
-        this.rd2.setStyle(this.elr.nativeElement,'object-fit',this.fitMode)        
+        // 声明自己占据模版中的 image 区块
+        this.setStyle('grid-area','image')
+        this.setStyle('width',this.appGridItemImage)
+        this.setStyle('height',this.appGridItemImage)
+        this.setStyle('object-fit',this.fitMode)        
+    }
+
+    private setStyle(styleName: string, styleValue: string){
+        this.rd2.setStyle(this.elr.nativeElement,styleName,styleValue)
+    }
+
+    // 参数1：事件名称， 参数2:传递事件携带的数据
+    @HostListener('click',['$event.target'])
+    handleClick(ev) {
+        console.log(ev);
     }
 }

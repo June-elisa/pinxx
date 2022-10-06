@@ -1,0 +1,5 @@
+/* 伪类选择器:host 会应用到组件app-horizontal-grid中  */
+:host {
+    display: flex;
+    justify-content: center;
+}
