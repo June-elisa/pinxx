@@ -1,5 +1,5 @@
-{{username}}
-<!-- <input type="text" [value]="username" (input)="input($event)" /> -->
-<!-- <input type="text" [(ngModel)]="username" /> -->
-{{result}}
-<button (click)="handleClick()">confirm</button>
+<!-- 指令所在的元素叫宿主 -->
+<div appGridItem *ngFor="let item of channels">
+    <img [src]="item.icon" alt="" [appGridItemImage]="'4rem'" [fitMode]="'none'" >
+    <span appGridItemTitle>{{item.title}}</span>
+</div>
