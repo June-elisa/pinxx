@@ -1,3 +1,12 @@
 <p>
-  home-grand works!
+  {{ obj | json}}
+</p>
+<p>
+  {{ date | date:'yy-mm-dd'}}
+</p>
+<p>
+  自定义pipe-- {{ date | appAgo}}
+</p>
+<p>
+  {{ '12.33'| currency:'CNY'}}
 </p>

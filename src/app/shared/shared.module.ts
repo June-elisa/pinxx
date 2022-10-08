@@ -5,6 +5,7 @@ import { HorizontalGridComponent } from './components/horizontal-grid/horizontal
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { ScrollableTabComponent } from './components/scrollable-tab/scrollable-tab.component';
 import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
+import { AgoPipe } from './pipes';
 
 
 
@@ -16,6 +17,7 @@ import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } fro
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
+    AgoPipe,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } fro
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
+    AgoPipe,
   ]
 })
 export class SharedModule { }
