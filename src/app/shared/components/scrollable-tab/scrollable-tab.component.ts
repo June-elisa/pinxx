@@ -50,6 +50,7 @@ export class ScrollableTabComponent implements OnInit,OnChanges {
 }
 // interface - 对象类型
 export interface TopMenu {
+  id: number;
   title: string;
   link?: string;
 }
