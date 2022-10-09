@@ -17,14 +17,15 @@ export class HomeService {
 
   getTabs() {
     // 把返回结果转化为 TopMenu[] 类型，默认会转为object
-    return this.http.get<TopMenu[]>(`${environment.baseUrl}/tabs`,{params: {icode: `${environment.icode}`}})
+    return this.http.get<TopMenu[]>(`${environment.baseUrl}/tabs`)
   }
 
   getChannels(){
-    return this.http.get<Channel[]>(`${environment.baseUrl}/channels`,{params: {icode: `${environment.icode}`}})
+    return this.http.get<Channel[]>(`${environment.baseUrl}/channels`)
   }
 
   getBanners(){
-    return this.http.get<ImageSlider[]>(`${environment.baseUrl}/banners`,{params: {icode: `${environment.icode}`}})
+    return this.http.get<ImageSlider[]>(`${environment.baseUrl}/banners`)
   }
 }
+ 
