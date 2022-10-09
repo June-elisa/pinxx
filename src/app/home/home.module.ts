@@ -7,7 +7,7 @@ import { HomeService, token } from './services';
 
 @NgModule({
   declarations: [HomeContainerComponent, HomeDetailComponent,HomeGrandComponent,HomeAuxComponent],
-  providers: [HomeService, {provide: token, useValue:'http://local.dev'}],
+  providers: [{provide: token, useValue:'http://local.dev'}],
   imports: [
     SharedModule,
     HomeRoutingModule

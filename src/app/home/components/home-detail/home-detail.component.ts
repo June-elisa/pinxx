@@ -27,8 +27,12 @@ export class HomeDetailComponent implements OnInit {
       console.log('查询参数：',params)
     })
 
-    this.imageSliders = this.service.getBanners();
-    this.channels = this.service.getChannels();
+    this.service.getBanners().subscribe(banners => {
+      this.imageSliders = banners;
+    })
+    this.service.getChannels().subscribe(channels => {
+      this.channels = channels;
+    })
   }
 
 }
