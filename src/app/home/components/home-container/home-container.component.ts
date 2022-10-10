@@ -17,7 +17,8 @@ export class HomeContainerComponent implements OnInit {
   title = 'pinxx';
   TopMenus: TopMenu[] = [];
   username = '';
-
+  startDate = new Date(2022, 6, 1);
+  futureDate = new Date(2022, 6, 2)
   constructor(
     private router: Router, 
     private service: HomeService,
