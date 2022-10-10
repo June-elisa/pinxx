@@ -1,5 +1,6 @@
-import { Component, Inject, InjectionToken, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, InjectionToken, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { fromEvent } from 'rxjs';
 import { ImageSliderComponent } from 'src/app/shared/components/image-slider/image-slider.component';
 import { TopMenu } from 'src/app/shared/components/scrollable-tab/scrollable-tab.component';
 import { token } from '../../services';
@@ -11,6 +12,7 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home-container.component.css'],
 })
 export class HomeContainerComponent implements OnInit {
+  @ViewChild('inputRef',{static:true}) input: ElementRef;
   @ViewChild('imageSlider') imgSlider!: ImageSliderComponent;
   title = 'pinxx';
   TopMenus: TopMenu[] = [];
@@ -27,7 +29,10 @@ export class HomeContainerComponent implements OnInit {
       this.TopMenus = tabs
     })
 
-    console.log(this.baseUrl)
+    fromEvent(this.input.nativeElement,'input')
+      .subscribe((ev:any) => console.log(ev.target.value));
+
+     console.log('hello')
   }
 
   handleTabSelected(topMenu: TopMenu) {
