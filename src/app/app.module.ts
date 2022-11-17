@@ -10,6 +10,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import localZh from '@angular/common/locales/zh-Hans'
 import { registerLocaleData } from '@angular/common';
+import { RecommendModule } from './recommend';
+import { MyModule } from './my/my.module';
+import { CategoryModule } from './category/category.module';
+import { ChatRoutingModule } from './chat/chat-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +26,10 @@ import { registerLocaleData } from '@angular/common';
     SharedModule,
     HomeModule,
     HttpClientModule,
+    RecommendModule,
+    MyModule,
+    CategoryModule,
+    ChatRoutingModule,
   ],
   providers: [
     {

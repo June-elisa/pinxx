@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, InjectionToken, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { fromEvent } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, fromEvent, map, Observable } from 'rxjs';
 import { ImageSliderComponent } from 'src/app/shared/components/image-slider/image-slider.component';
 import { TopMenu } from 'src/app/shared/components/scrollable-tab/scrollable-tab.component';
 import { token } from '../../services';
@@ -19,9 +19,12 @@ export class HomeContainerComponent implements OnInit {
   username = '';
   startDate = new Date(2022, 6, 1);
   futureDate = new Date(2022, 6, 2)
+
+  selectedTabLink$: Observable<string>;
   constructor(
     private router: Router, 
     private service: HomeService,
+    private route: ActivatedRoute,
     @Inject(token) private baseUrl: String
     ) {}
 
@@ -29,6 +32,11 @@ export class HomeContainerComponent implements OnInit {
     this.service.getTabs().subscribe(tabs => {
       this.TopMenus = tabs
     })
+
+    this.selectedTabLink$ = this.route.firstChild.paramMap.pipe(
+      filter(params => params.has('tabLink')),
+      map(params => params.get('tabLink'))
+    )
 
     fromEvent(this.input.nativeElement,'input')
       .subscribe((ev:any) => console.log(ev.target.value));

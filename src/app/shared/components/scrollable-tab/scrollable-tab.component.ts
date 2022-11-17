@@ -12,6 +12,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
  * 另一个是对组件涉及到哪些生命周期一目了然
  */
 export class ScrollableTabComponent implements OnInit,OnChanges {
+  @Input() selectedTabLink: string;
   @Input() menus: TopMenu[] = [];
   @Input() backgroundColor = '#fff'
   @Input() titleColor = 'blue'
@@ -19,7 +20,6 @@ export class ScrollableTabComponent implements OnInit,OnChanges {
   @Input() indicatorColor = 'brown'
   @Output() tabSelected = new EventEmitter();
 
-  selectIndex = -1;
   dict: Dict = {
     a: '1',
     b: '2',
@@ -37,8 +37,7 @@ export class ScrollableTabComponent implements OnInit,OnChanges {
   add: AddFunc = (x, y) => x + y;
 
   handleSelection(i: number) {
-    this.selectIndex = i;
-    this.tabSelected.emit(this.menus[this.selectIndex]);
+    this.tabSelected.emit(this.menus[i]);
   }
 
   /**

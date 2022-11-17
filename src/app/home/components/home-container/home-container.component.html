@@ -4,12 +4,13 @@
   titleActiveColor="yellow"
   titleColor="#fff"
   indicatorColor="yellow"
+  [selectedTabLink]="selectedTabLink$ | async"
   (tabSelected)="handleTabSelected($event)"
 >
 </app-scrollable-tab>
 <router-outlet></router-outlet>
 
 <!-- 演示rxjs用 -->
-<input type="text" #inputRef />
+<!-- <input type="text" #inputRef />
 
-<app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down>
+<app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down> -->
