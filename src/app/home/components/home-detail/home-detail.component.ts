@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { filter, map, Observable, Subscription } from 'rxjs';
+import { filter, map, Observable, Subscription, switchMap } from 'rxjs';
 import { Channel } from 'src/app/shared/components/horizontal-grid/horizontal-grid.component';
 import { ImageSlider } from 'src/app/shared/components/image-slider/image-slider.component';
+import { Ad } from 'src/app/shared/domain';
 import { HomeService } from '../../services/home.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class HomeDetailComponent implements OnInit,OnDestroy {
   selectedTabLink$: Observable<string>; // 加 $ 是个惯例，能知道是 Observable 类型的
   imageSliders$: Observable<ImageSlider[]>;
   channels$: Observable<Channel[]>;
+  ad$: Observable<Ad>;
   sub: Subscription;
 
   constructor(private route: ActivatedRoute, private service: HomeService) {}
@@ -31,6 +33,14 @@ export class HomeDetailComponent implements OnInit,OnDestroy {
     this.imageSliders$ = this.service.getBanners();
 
     this.channels$ = this.service.getChannels();
+
+    // 流中有流
+    this.ad$ = this.selectedTabLink$.pipe(
+      // switchMap相比map,可以把流中的值取出来(拍平 )
+      switchMap(tab => this.service.getAdByTab(tab)),
+      filter(ads => ads.length > 0),
+      map(ads => ads[0])
+    )
   }
 
   ngOnDestroy(): void {
