@@ -3,7 +3,7 @@ import { ActivatedRoute, Route } from '@angular/router';
 import { filter, map, Observable, Subscription, switchMap } from 'rxjs';
 import { Channel } from 'src/app/shared/components/horizontal-grid/horizontal-grid.component';
 import { ImageSlider } from 'src/app/shared/components/image-slider/image-slider.component';
-import { Ad } from 'src/app/shared/domain';
+import { Ad, Product } from 'src/app/shared/domain';
 import { HomeService } from '../../services/home.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class HomeDetailComponent implements OnInit,OnDestroy {
   imageSliders$: Observable<ImageSlider[]>;
   channels$: Observable<Channel[]>;
   ad$: Observable<Ad>;
+  products$: Observable<Product[]>;
   sub: Subscription;
 
   constructor(private route: ActivatedRoute, private service: HomeService) {}
@@ -40,6 +41,10 @@ export class HomeDetailComponent implements OnInit,OnDestroy {
       switchMap(tab => this.service.getAdByTab(tab)),
       filter(ads => ads.length > 0),
       map(ads => ads[0])
+    )
+    this.products$ = this.selectedTabLink$.pipe(
+      // switchMap相比map,可以把流中的值取出来(拍平 )
+      switchMap(tab => this.service.geProductsByTab(tab)),
     )
   }
 

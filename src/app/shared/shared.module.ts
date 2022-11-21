@@ -8,6 +8,7 @@ import { CountDownComponent } from './components/count-down/count-down.component
 import { FooterComponent } from './components/footer/footer.component'
 import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
 import { AgoPipe } from './pipes';
+import { VerticalGridComponent } from './components/vertical-grid/vertical-grid.component';
 
 
 
@@ -18,6 +19,7 @@ import { AgoPipe } from './pipes';
     HorizontalGridComponent,
     CountDownComponent,
     FooterComponent,
+    VerticalGridComponent,
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
@@ -35,6 +37,7 @@ import { AgoPipe } from './pipes';
     HorizontalGridComponent,
     CountDownComponent,
     FooterComponent,
+    VerticalGridComponent,
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,

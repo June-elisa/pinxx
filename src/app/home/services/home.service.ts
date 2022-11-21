@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Channel } from 'src/app/shared/components/horizontal-grid/horizontal-grid.component';
 import { ImageSlider } from 'src/app/shared/components/image-slider/image-slider.component';
 import { TopMenu } from 'src/app/shared/components/scrollable-tab/scrollable-tab.component';
-import { Ad } from 'src/app/shared/domain';
+import { Ad, Product } from 'src/app/shared/domain';
 import { environment } from 'src/environments/environment';
 import { HomeModule } from '../home.module';
 
@@ -31,5 +31,11 @@ export class HomeService {
     return this.http.get<Ad[]>(`${environment.baseUrl}/ads`, {
       params: { categories_like: tab },
     });
-  }
+  }  
+
+  geProductsByTab(tab: string) {
+    return this.http.get<Product[]>(`${environment.baseUrl}/products`, {
+      params: { categories_like: tab },
+    });
+  }  
 }
