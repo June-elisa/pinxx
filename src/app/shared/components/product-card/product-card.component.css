@@ -38,4 +38,27 @@
 
 .product-price {
     grid-area:price;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas:'price-detail price-desc price-avatar';
+    place-content: stretch;
+    place-items: center;
+}
+
+.price-section {
+    grid-area:price-detail;
+    color: #d24749;
+    margin: 0 1rem;
+}
+
+.price-desc {
+    grid-area:price-desc;
+    color:#3f3f3f;
+    font-size: 0.8rem;
+}
+
+.price-avatar {
+    grid-area:price-avatar;
+    margin: 0;
 }

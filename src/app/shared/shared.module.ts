@@ -6,7 +6,7 @@ import { ImageSliderComponent } from './components/image-slider/image-slider.com
 import { ScrollableTabComponent } from './components/scrollable-tab/scrollable-tab.component';
 import { CountDownComponent } from './components/count-down/count-down.component'
 import { FooterComponent } from './components/footer/footer.component'
-import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective, TagDirective } from './directives';
+import { AvatarDirective, GridItemDirective, GridItemImageDirective, GridItemTitleDirective, TagDirective } from './directives';
 import { AgoPipe } from './pipes';
 import { VerticalGridComponent } from './components/vertical-grid/vertical-grid.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
@@ -25,7 +25,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
-    TagDirective,    
+    TagDirective,
+    AvatarDirective,    
     AgoPipe,
   ],
   imports: [
@@ -46,6 +47,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     GridItemTitleDirective,
     GridItemImageDirective,
     TagDirective,
+    AvatarDirective,
     AgoPipe,
     
   ]
