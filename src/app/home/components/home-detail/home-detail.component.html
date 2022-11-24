@@ -1,6 +1,6 @@
 <ng-container *ngIf="(selectedTabLink$ | async) as tab">
   <ng-container *ngIf="tab === 'hot' else other">
-    <app-image-slider #imageSlider  [sliders]="(imageSliders$ | async)"></app-image-slider>
+    <app-image-slider #imageSlider [sliders]="(imageSliders$ | async)"></app-image-slider>
     <app-horizontal-grid>
       <span appGridItem *ngFor="let item of (channels$ | async)">
         <img [src]="item.icon" alt="" [appGridItemImage]="'4rem'" [fitMode]="'cover'">
@@ -24,13 +24,11 @@
 <router-outlet></router-outlet>
 <!-- <router-outlet name="second"></router-outlet> -->
 
-  
+
 <div class="ad-container" *ngIf="(ad$ | async) as ad">
   <img [src]="ad.imageUrl" alt="" class="ad-image">
 </div>
 
-<app-vertical-grid [itemWidth]="'10rem'" >
-  <div *ngFor="let item of products$ | async">{{item.title}}</div>
-  <div>hello2</div>
-
+<app-vertical-grid [itemWidth]="'20rem'" [itemHeight]="'2rem'">
+  <app-product-card *ngFor="let item of products$ | async" [product]="item"></app-product-card>
 </app-vertical-grid>

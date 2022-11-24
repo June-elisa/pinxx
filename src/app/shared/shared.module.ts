@@ -6,9 +6,10 @@ import { ImageSliderComponent } from './components/image-slider/image-slider.com
 import { ScrollableTabComponent } from './components/scrollable-tab/scrollable-tab.component';
 import { CountDownComponent } from './components/count-down/count-down.component'
 import { FooterComponent } from './components/footer/footer.component'
-import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
+import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective, TagDirective } from './directives';
 import { AgoPipe } from './pipes';
 import { VerticalGridComponent } from './components/vertical-grid/vertical-grid.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 
@@ -20,9 +21,11 @@ import { VerticalGridComponent } from './components/vertical-grid/vertical-grid.
     CountDownComponent,
     FooterComponent,
     VerticalGridComponent,
+    ProductCardComponent,
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
+    TagDirective,    
     AgoPipe,
   ],
   imports: [
@@ -38,10 +41,13 @@ import { VerticalGridComponent } from './components/vertical-grid/vertical-grid.
     CountDownComponent,
     FooterComponent,
     VerticalGridComponent,
+    ProductCardComponent,
     GridItemDirective,
     GridItemTitleDirective,
     GridItemImageDirective,
+    TagDirective,
     AgoPipe,
+    
   ]
 })
 export class SharedModule { }
